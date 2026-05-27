@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.naoty.gradebook.controller.SettingsController"
+      spacing="22" styleClass="page">
+
+    <VBox styleClass="page-header" spacing="2">
+        <Label styleClass="page-title"    text="%settings.title"/>
+        <Label styleClass="page-subtitle" text="%settings.subtitle"/>
+    </VBox>
+
+    <!-- THEME -->
+    <VBox styleClass="card" spacing="14">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <FontIcon iconLiteral="fth-droplet" iconSize="20" styleClass="stat-icon-violet"/>
+            <VBox spacing="2">
+                <Label styleClass="card-title"    text="%settings.theme.title"/>
+                <Label styleClass="page-subtitle" text="%settings.theme.subtitle"/>
+            </VBox>
+        </HBox>
+        <HBox spacing="10">
+            <Button fx:id="lightBtn" styleClass="btn,settings-pick" onAction="#onPickLight" text="%settings.theme.light">
+                <graphic><FontIcon iconLiteral="fth-sun" iconSize="14"/></graphic>
+            </Button>
+            <Button fx:id="darkBtn" styleClass="btn,settings-pick" onAction="#onPickDark" text="%settings.theme.dark">
+                <graphic><FontIcon iconLiteral="fth-moon" iconSize="14"/></graphic>
+            </Button>
+        </HBox>
+    </VBox>
+
+    <!-- LANGUAGE -->
+    <VBox styleClass="card" spacing="14">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <FontIcon iconLiteral="fth-globe" iconSize="20" styleClass="stat-icon-blue"/>
+            <VBox spacing="2">
+                <Label styleClass="card-title"    text="%settings.language.title"/>
+                <Label styleClass="page-subtitle" text="%settings.language.subtitle"/>
+            </VBox>
+        </HBox>
+        <HBox spacing="10">
+            <Button fx:id="frBtn" styleClass="btn,settings-pick" onAction="#onPickFr"
+                    text="%settings.language.fr"/>
+            <Button fx:id="enBtn" styleClass="btn,settings-pick" onAction="#onPickEn"
+                    text="%settings.language.en"/>
+            <Button fx:id="mgBtn" styleClass="btn,settings-pick" onAction="#onPickMg"
+                    text="%settings.language.mg"/>
+        </HBox>
+        <Label styleClass="page-subtitle" text="%settings.language.note" wrapText="true"/>
+    </VBox>
+
+    <!-- INFO -->
+    <VBox styleClass="card" spacing="8">
+        <Label styleClass="card-title" text="%settings.about.title"/>
+        <Label fx:id="aboutLabel" text="—" wrapText="true" styleClass="page-subtitle"/>
+    </VBox>
+</VBox>

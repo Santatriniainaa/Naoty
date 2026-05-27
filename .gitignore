@@ -1,0 +1,45 @@
+# ---- Build Maven ----
+target/
+*.class
+*.jar
+*.war
+dependency-reduced-pom.xml
+
+# ---- Maven Wrapper ----
+# On commit mvnw, mvnw.cmd et .mvn/wrapper/maven-wrapper.properties.
+# Le jar est téléchargé automatiquement au premier ./mvnw.
+.mvn/wrapper/maven-wrapper.jar
+
+# ---- IDE ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+nbproject/private/
+nb-configuration.xml
+
+# ---- Runtime de l'application ----
+# CSV produits par l'app, logs, PDF générés, backups.
+data/
+logs/
+bulletins/
+*.log
+*.bak
+
+# ---- JVM ----
+hs_err_pid*.log
+replay_pid*.log
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Docs internes (non versionnés) ----
+CLAUDE.md
+prompt.txt

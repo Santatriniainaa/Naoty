@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.naoty.gradebook.controller.admin.ImportExportController"
+      spacing="22" styleClass="page">
+
+    <VBox styleClass="page-header" spacing="2">
+        <Label styleClass="page-title"    text="%page.admin.import.title"/>
+        <Label styleClass="page-subtitle" text="%page.admin.import.subtitle"/>
+    </VBox>
+
+    <FlowPane hgap="18" vgap="18">
+        <!-- PROFS -->
+        <VBox styleClass="card,io-card" spacing="14" minWidth="280" prefWidth="300">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-user-check" iconSize="22" styleClass="stat-icon-violet"/>
+                <Label styleClass="card-title" text="%nav.admin.profs"/>
+            </HBox>
+            <Label fx:id="profsCountLabel" styleClass="page-subtitle" text="—"/>
+            <HBox spacing="8">
+                <Button styleClass="btn,btn-secondary" onAction="#onExportProfs" text="%io.export">
+                    <graphic><FontIcon iconLiteral="fth-download" iconSize="13"/></graphic>
+                </Button>
+                <Button styleClass="btn,btn-primary" onAction="#onImportProfs" text="%io.import">
+                    <graphic><FontIcon iconLiteral="fth-upload" iconSize="13"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- STUDENTS -->
+        <VBox styleClass="card,io-card" spacing="14" minWidth="280" prefWidth="300">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-users" iconSize="22" styleClass="stat-icon-blue"/>
+                <Label styleClass="card-title" text="%nav.admin.students"/>
+            </HBox>
+            <Label fx:id="studentsCountLabel" styleClass="page-subtitle" text="—"/>
+            <HBox spacing="8">
+                <Button styleClass="btn,btn-secondary" onAction="#onExportStudents" text="%io.export">
+                    <graphic><FontIcon iconLiteral="fth-download" iconSize="13"/></graphic>
+                </Button>
+                <Button styleClass="btn,btn-primary" onAction="#onImportStudents" text="%io.import">
+                    <graphic><FontIcon iconLiteral="fth-upload" iconSize="13"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- SUBJECTS -->
+        <VBox styleClass="card,io-card" spacing="14" minWidth="280" prefWidth="300">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-book" iconSize="22" styleClass="stat-icon-emerald"/>
+                <Label styleClass="card-title" text="%nav.admin.subjects"/>
+            </HBox>
+            <Label fx:id="subjectsCountLabel" styleClass="page-subtitle" text="—"/>
+            <HBox spacing="8">
+                <Button styleClass="btn,btn-secondary" onAction="#onExportSubjects" text="%io.export">
+                    <graphic><FontIcon iconLiteral="fth-download" iconSize="13"/></graphic>
+                </Button>
+                <Button styleClass="btn,btn-primary" onAction="#onImportSubjects" text="%io.import">
+                    <graphic><FontIcon iconLiteral="fth-upload" iconSize="13"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- GRADES -->
+        <VBox styleClass="card,io-card" spacing="14" minWidth="280" prefWidth="300">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-edit-3" iconSize="22" styleClass="stat-icon-amber"/>
+                <Label styleClass="card-title" text="%io.grades"/>
+            </HBox>
+            <Label fx:id="gradesCountLabel" styleClass="page-subtitle" text="—"/>
+            <HBox spacing="8">
+                <Button styleClass="btn,btn-secondary" onAction="#onExportGrades" text="%io.export">
+                    <graphic><FontIcon iconLiteral="fth-download" iconSize="13"/></graphic>
+                </Button>
+                <Button styleClass="btn,btn-primary" onAction="#onImportGrades" text="%io.import">
+                    <graphic><FontIcon iconLiteral="fth-upload" iconSize="13"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </FlowPane>
+
+    <VBox styleClass="card" spacing="8">
+        <Label styleClass="card-title" text="%io.help.title"/>
+        <Label text="%io.help.body" wrapText="true" styleClass="page-subtitle"/>
+    </VBox>
+</VBox>

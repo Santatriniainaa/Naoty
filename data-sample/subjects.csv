@@ -1,0 +1,7 @@
+"id","nom","coefficient","niveau","semestre","formation","profId","weightDS","weightTP","weightExam"
+"MATH-L1-S1","Mathématiques I","4","L1","S1","BOTH","PROF-001","0.30","0.20","0.50"
+"PHY-L1-S1","Physique I","3","L1","S1","ACADEMIQUE","PROF-002","0.30","0.20","0.50"
+"ANG-L1-S1","Anglais","2","L1","S1","BOTH","PROF-003","0.40","0.00","0.60"
+"INFO-L1-S2","Informatique","3","L1","S2","BOTH","PROF-004","0.20","0.40","0.40"
+"MATH-L2-S3","Mathématiques II","4","L2","S3","ACADEMIQUE","PROF-001","0.30","0.20","0.50"
+"COMPTA-L2-S3","Comptabilité","3","L2","S3","PROFESSIONNEL","PROF-002","0.30","0.20","0.50"

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.naoty.gradebook.controller.admin.AdminDashboardController"
+      spacing="22" styleClass="page">
+
+    <VBox styleClass="page-header" spacing="2">
+        <Label styleClass="page-title"    text="%dashboard.admin.title"/>
+        <Label styleClass="page-subtitle" text="%dashboard.admin.subtitle"/>
+    </VBox>
+
+    <FlowPane hgap="16" vgap="16">
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="200" prefWidth="220">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-users" iconSize="18" styleClass="stat-icon-blue"/>
+                <Label styleClass="stat-title" text="%dashboard.admin.totalStudents"/>
+            </HBox>
+            <Label fx:id="totalStudentsLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="200" prefWidth="220">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-user-check" iconSize="18" styleClass="stat-icon-violet"/>
+                <Label styleClass="stat-title" text="%dashboard.admin.totalProfs"/>
+            </HBox>
+            <Label fx:id="totalProfsLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="200" prefWidth="220">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-book" iconSize="18" styleClass="stat-icon-emerald"/>
+                <Label styleClass="stat-title" text="%dashboard.admin.totalSubjects"/>
+            </HBox>
+            <Label fx:id="totalSubjectsLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="200" prefWidth="220">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-trending-up" iconSize="18" styleClass="stat-icon-amber"/>
+                <Label styleClass="stat-title" text="%dashboard.admin.globalAverage"/>
+            </HBox>
+            <Label fx:id="globalAverageLabel" styleClass="stat-value" text="—"/>
+        </VBox>
+    </FlowPane>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" prefWidth="100">
+            <padding><Insets top="6" right="6" bottom="6" left="6"/></padding>
+            <Label styleClass="card-title" text="%dashboard.admin.chartByNiveau"/>
+            <BarChart fx:id="niveauChart" VBox.vgrow="ALWAYS" legendVisible="false"
+                      animated="false" categoryGap="20" barGap="6">
+                <xAxis><CategoryAxis fx:id="chartX"/></xAxis>
+                <yAxis><NumberAxis fx:id="chartY" lowerBound="0" upperBound="20"
+                                   autoRanging="false" tickUnit="5"/></yAxis>
+            </BarChart>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS" prefWidth="100">
+            <padding><Insets top="6" right="6" bottom="6" left="6"/></padding>
+            <Label styleClass="card-title" text="%dashboard.admin.chartMentions"/>
+            <PieChart fx:id="mentionsChart" VBox.vgrow="ALWAYS" animated="false"
+                      labelLineLength="14"/>
+        </VBox>
+    </HBox>
+</VBox>

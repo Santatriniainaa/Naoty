@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.naoty.gradebook.controller.LoginController"
+           styleClass="login-root">
+
+    <VBox styleClass="login-card" alignment="CENTER" spacing="18" maxWidth="380">
+        <padding><Insets top="42" right="40" bottom="36" left="40"/></padding>
+
+        <HBox alignment="CENTER" spacing="10">
+            <FontIcon iconLiteral="fth-book-open" iconSize="36" styleClass="login-brand-icon"/>
+            <Label styleClass="login-brand" text="Naoty"/>
+        </HBox>
+
+        <VBox alignment="CENTER" spacing="4">
+            <Label styleClass="login-title"    text="%login.title"/>
+            <Label styleClass="login-subtitle" text="%login.subtitle"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label styleClass="form-label" text="%login.input.label"/>
+            <TextField fx:id="codeField" promptText="%login.input.placeholder"
+                       styleClass="login-input" onAction="#onLogin"/>
+            <Label fx:id="errorLabel" styleClass="login-error" managed="false" visible="false"/>
+        </VBox>
+
+        <Button fx:id="loginButton" styleClass="btn,btn-primary,login-submit"
+                text="%login.submit" onAction="#onLogin" defaultButton="true"/>
+
+        <Label styleClass="login-hint"
+               text="ADMIN pour l'administrateur · PROF-XXX pour un professeur"/>
+    </VBox>
+</StackPane>

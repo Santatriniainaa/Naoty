@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.naoty.gradebook.controller.prof.ProfDashboardController"
+      spacing="22" styleClass="page">
+
+    <VBox styleClass="page-header" spacing="2">
+        <Label fx:id="welcomeLabel"  styleClass="page-title"    text="Bonjour"/>
+        <Label                       styleClass="page-subtitle" text="%dashboard.prof.subtitle"/>
+    </VBox>
+
+    <FlowPane hgap="16" vgap="16">
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="220" prefWidth="240">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-book" iconSize="18" styleClass="stat-icon-blue"/>
+                <Label styleClass="stat-title" text="%dashboard.prof.matieres"/>
+            </HBox>
+            <Label fx:id="matieresLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="220" prefWidth="240">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-edit-3" iconSize="18" styleClass="stat-icon-violet"/>
+                <Label styleClass="stat-title" text="%dashboard.prof.gradesEntered"/>
+            </HBox>
+            <Label fx:id="gradesLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+        <VBox styleClass="card,stat-card" spacing="10" minWidth="220" prefWidth="240">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fth-users" iconSize="18" styleClass="stat-icon-emerald"/>
+                <Label styleClass="stat-title" text="%dashboard.prof.students"/>
+            </HBox>
+            <Label fx:id="studentsLabel" styleClass="stat-value" text="0"/>
+        </VBox>
+    </FlowPane>
+
+    <VBox styleClass="card" spacing="8">
+        <Label styleClass="card-title" text="%dashboard.prof.tip"/>
+        <Label text="%dashboard.prof.tip.body" wrapText="true" styleClass="page-subtitle"/>
+    </VBox>
+</VBox>

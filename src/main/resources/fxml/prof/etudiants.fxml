@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.naoty.gradebook.controller.prof.MyStudentsController"
+      spacing="20" styleClass="page">
+
+    <VBox styleClass="page-header" spacing="2">
+        <Label styleClass="page-title"    text="%page.prof.students.title"/>
+        <Label fx:id="subtitleLabel" styleClass="page-subtitle" text="%page.prof.students.subtitle"/>
+    </VBox>
+
+    <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="%student.search"
+                   styleClass="search-input" HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="niveauFilter"    promptText="%filter.niveau"/>
+        <ComboBox fx:id="formationFilter" promptText="%filter.formation"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS" styleClass="table">
+        <columns>
+            <TableColumn fx:id="colId"        text="ID"                       prefWidth="100"/>
+            <TableColumn fx:id="colNom"       text="%user.col.nom"            prefWidth="140"/>
+            <TableColumn fx:id="colPrenom"    text="%user.col.prenom"         prefWidth="140"/>
+            <TableColumn fx:id="colSexe"      text="%student.col.sexe"        prefWidth="60"/>
+            <TableColumn fx:id="colNiveau"    text="%student.col.niveau"      prefWidth="80"/>
+            <TableColumn fx:id="colFormation" text="%student.col.formation"   prefWidth="130"/>
+            <TableColumn fx:id="colStatus"    text="%student.col.status"      prefWidth="110"/>
+            <TableColumn fx:id="colMatieres"  text="%page.prof.students.col.subjects" prefWidth="80"/>
+        </columns>
+        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+    </TableView>
+</VBox>
