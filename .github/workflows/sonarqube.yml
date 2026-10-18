@@ -43,4 +43,5 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=Naoty \
             -Dsonar.projectName='Naoty' \
+            -Dsonar.host.url="${SONAR_HOST_URL}" \
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
