@@ -79,7 +79,7 @@ L'empreinte mémoire en cours d'utilisation tourne autour de **180-250 Mo**
 ### Lancer en mode développement
 
 ```bash
-git clone https://github.com/Santatriniainaa/Naoty.git #git clone git@github.com:Santatriniainaa/Naoty.git
+git clone git@github.com:Santatriniainaa/Naoty.git #git clone https://github.com/Santatriniainaa/Naoty.git
 cd Naoty
 ./mvnw javafx:run
 ```
