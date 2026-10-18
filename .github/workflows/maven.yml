@@ -32,7 +32,8 @@ jobs:
           libxtst6 \
           libxrender1 \
           libxi6 \
-          libgl1-mesa-glx \
+          libgl1 \
+          libglx-mesa0 \
           libglib2.0-0 \
           xvfb
 
