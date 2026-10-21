@@ -1,9 +1,6 @@
 # Naoty — Carnet de notes universitaire
 
-Application desktop **JavaFX 21** pour la gestion des notes universitaires.
-Authentification multi-rôles (Administrateur / Professeur), stockage CSV
-local, génération de bulletins PDF, interface moderne adaptative
-(light / dark, FR / EN / MG).
+Naoty est une application de bureau dédiée à la gestion des notes universitaires. Elle permet aux administrateurs et aux professeurs d’accéder à des fonctionnalités adaptées à leurs rôles, de gérer les résultats des étudiants et de générer des bulletins de notes au format PDF. Son interface moderne et intuitive s’adapte aux préférences de chacun, avec plusieurs langues disponibles : français, anglais et malgache, ainsi qu’un choix entre le mode clair et le mode sombre.
 
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![JavaFX](https://img.shields.io/badge/JavaFX-21-blue)
