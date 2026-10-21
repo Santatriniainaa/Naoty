@@ -41,7 +41,7 @@ local, génération de bulletins PDF, interface moderne adaptative
 
 - gère les **étudiants**, **professeurs**, **matières** et **notes** d'une structure universitaire ;
 - propose **deux profils utilisateurs** (admin pour la gestion globale, prof pour la saisie de notes) ;
-- couvre les **5 niveaux** L1 → M2 et les **10 semestres** S1 → S10 ;
+- couvre les **5 niveaux** L1, L2, L3, M1, M2 et les **10 semestres** S1 → S10 ;
 - distingue les formations **Académique** et **Professionnel** (matières partageables `BOTH`) ;
 - supporte trois types d'évaluation **DS / TP / Examen** avec **pondération configurable par matière** ;
 - calcule automatiquement **moyennes par matière**, **moyenne semestrielle**, **rang dans la cohorte** et **mention** ;
@@ -159,24 +159,40 @@ poste partagé. Le code admin est configurable dans `application.properties`
 ## Modèle de données
 
 ```text
-User (users.csv)                          Student (students.csv)
-├── id       "PROF-001"                   ├── id          "STU-001"
-├── role     PROF                         ├── nom, prenom
-├── nom                                   ├── sexe        M | F
-└── prenom                                ├── niveau      L1 | L2 | L3 | M1 | M2
-                                          ├── formation   ACADEMIQUE | PROFESSIONNEL
-Subject (subjects.csv)                    └── status      PASSANT | REDOUBLANT
+User (users.csv)
+├── id       "PROF-001"
+├── role     PROF
+├── nom
+└── prenom
+
+Student (students.csv)
+├── id          "STU-001"
+├── nom, prenom
+├── sexe        M | F
+├── niveau      L1 | L2 | L3 | M1 | M2
+├── formation   ACADEMIQUE | PROFESSIONNEL
+└── status      PASSANT | REDOUBLANT
+
+Subject (subjects.csv)                    
 ├── id           "MATH-L1-S1"
-├── nom          "Mathématiques I"        Grade (grades.csv)
-├── coefficient  1..10                    ├── id          "G-xxxxxx"
-├── niveau       L1..M2                   ├── studentId   → Student.id
-├── semestre     S1..S10                  ├── subjectId   → Subject.id
-├── formation    ACADEMIQUE |             ├── profId      → User.id
-│                PROFESSIONNEL | BOTH     ├── type        DS | TP | EXAM
-├── profId       → User.id                ├── value       0..20
-├── weightDS     0..1                     └── date        ISO LocalDate
+├── nom          "Mathématiques I"        
+├── coefficient  1..10                    
+├── niveau       L1..M2                   
+├── semestre     S1..S10                  
+├── formation    ACADEMIQUE | PROFESSIONNEL | BOTH     
+├── profId       → User.id                
+├── weightDS     0..1                     
 ├── weightTP     0..1
 └── weightExam   0..1
+
+Grade (grades.csv)
+├── id          "G-xxxxxx"
+├── studentId   → Student.id
+├── subjectId   → Subject.id
+├── profId      → User.id
+├── type        DS | TP | EXAM
+├── value       0..20
+└── date        ISO LocalDate
 ```
 
 **Invariants** (vérifiés par les records et les validators) :
@@ -187,8 +203,7 @@ Subject (subjects.csv)                    └── status      PASSANT | REDOUB
 
 ## Architecture
 
-Couches strictes — une couche ne connaît que la couche immédiatement
-inférieure :
+Couches strictes — une couche ne connaît que la couche immédiatement inférieure :
 
 ```text
 view (FXML + CSS)
