@@ -1,0 +1,358 @@
+# Guide de contribution — Naoty
+
+Merci de votre intérêt pour **Naoty**, une application desktop de gestion des notes universitaires. Ce projet vise à simplifier la gestion des résultats académiques grâce à une interface intuitive et à une organisation claire des fonctionnalités.
+
+Nous accueillons les contributions des développeurs, des étudiants et de toute personne souhaitant améliorer le projet.
+
+Ce document explique comment contribuer au projet, signaler des bugs, proposer des améliorations et soumettre une Pull Request.
+
+## Table des matières
+
+- [Code de conduite](#code-de-conduite)
+- [Prérequis](#prérequis)
+- [Démarrer avec le projet](#démarrer-avec-le-projet)
+- [Workflow de développement](#workflow-de-développement)
+- [Convention de nommage des branches](#convention-de-nommage-des-branches)
+- [Convention des messages de Commit](#convention-des-messages-de-commit)
+- [Règles de développement](#règles-de-développement)
+- [Tests et validation](#tests-et-validation)
+- [Signaler un Bug](#signaler-un-bug)
+- [Proposer une amélioration](#proposer-une-amélioration)
+- [Processus de Pull Request](#processus-de-pull-request)
+- [Sécurité et confidentialité](#sécurité-et-confidentialité)
+- [Licence](#licence)
+
+## Code de conduite
+
+Tous les contributeurs doivent contribuer à un environnement respectueux, inclusif et collaboratif.
+
+Nous encourageons chaque contributeur à :
+
+- Respecter les autres membres de la communauté.
+- Fournir des retours constructifs lors des Code Reviews.
+- Accepter les différences d'opinion et les propositions d'amélioration.
+- Éviter les comportements discriminatoires ou offensants.
+- Privilégier la qualité du code et la collaboration.
+
+## Prérequis
+
+Avant de contribuer à Naoty, assurez-vous de disposer des outils nécessaires au développement du projet.
+
+- **Java Development Kit (JDK)** : version compatible avec le projet.
+- **JavaFX** : pour le développement de l'interface desktop.
+- **Git** : pour la gestion des versions.
+- Un IDE compatible Java, tel qu'IntelliJ IDEA, Eclipse ou Visual Studio Code.
+- Les dépendances et outils de build indiqués dans le `README.md` du projet.
+
+Familiarisez-vous également avec les notions suivantes :
+
+- Programmation orientée objet (OOP).
+- Architecture MVC (Model-View-Controller).
+- Gestion des événements JavaFX.
+- Lecture et écriture de fichiers CSV.
+- Tests unitaires et bonnes pratiques de développement Java.
+
+## Démarrer avec le projet
+
+### 1. Fork du dépôt
+
+Accédez au dépôt officiel :
+
+https://github.com/Santatriniainaa/Naoty
+
+Cliquez sur **Fork** pour créer une copie du repository sur votre compte GitHub.
+
+### 2. Cloner le repository
+
+Clonez votre Fork sur votre machine locale :
+
+```bash
+git clone git@github.com:Santatriniainaa/Naoty.git
+cd Naoty
+```
+
+### 3. Configurer le dépôt upstream
+
+Ajoutez le repository original comme remote `upstream` :
+
+```bash
+git remote add upstream git@github.com:Santatriniainaa/Naoty.git
+```
+
+Vérifiez la configuration :
+
+```bash
+git remote -v
+```
+
+### 4. Préparer l'environnement de développement
+
+Consultez le `README.md` pour connaître les instructions d'installation et de lancement.
+
+Avant de commencer les modifications, vérifiez que le projet compile et que l'application démarre correctement dans votre environnement.
+
+## Workflow de développement
+
+Nous recommandons le workflow suivant pour chaque contribution :
+
+1. Synchroniser votre branche locale avec le repository officiel.
+2. Créer une nouvelle branch dédiée à la modification.
+3. Implémenter une fonctionnalité ou corriger un problème précis.
+4. Ajouter ou mettre à jour les tests lorsque cela est pertinent.
+5. Vérifier la compilation et le comportement de l'application.
+6. Créer un ou plusieurs commits explicites.
+7. Push la branch vers votre Fork.
+8. Ouvrir une Pull Request vers le repository officiel.
+
+Pour synchroniser votre branche `main` :
+
+```bash
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
+
+Créez ensuite votre branche de travail :
+
+```bash
+git checkout -b feat/your-feature
+```
+
+Si votre branche `main` locale n'existe pas encore ou si votre configuration diffère, adaptez ces commandes à votre repository.
+
+## Convention de nommage des branches
+
+Utilisez des noms explicites qui indiquent la nature de votre contribution.
+
+| Préfixe | Utilisation | Exemple |
+|---|---|---|
+| `feat/` | Nouvelle fonctionnalité | `feat/grade-management` |
+| `fix/` | Correction d'un bug | `fix/grade-validation` |
+| `docs/` | Documentation | `docs/update-readme` |
+| `test/` | Ajout ou amélioration de tests | `test/grade-calculation` |
+| `refactor/` | Amélioration de la structure du code | `refactor/student-service` |
+| `style/` | Modifications de formatage | `style/java-formatting` |
+| `chore/` | Maintenance du projet | `chore/update-dependencies` |
+
+Privilégiez les lettres minuscules et séparez les mots avec des tirets (`-`).
+
+## Convention des messages de Commit
+
+Naoty recommande l'utilisation de la convention **Conventional Commits** pour faciliter la lecture de l'historique Git.
+
+Format :
+
+```text
+<type>(<scope>): <description>
+```
+
+Les types les plus courants sont :
+
+- `feat` : ajout d'une fonctionnalité.
+- `fix` : correction d'un bug.
+- `docs` : modification de la documentation.
+- `test` : ajout ou modification de tests.
+- `refactor` : restructuration du code sans modification intentionnelle du comportement.
+- `style` : changements de formatage sans impact fonctionnel.
+- `chore` : maintenance et tâches techniques.
+- `perf` : amélioration des performances.
+
+Exemples :
+
+```bash
+git commit -m "feat(grades): add grade management"
+git commit -m "fix(auth): correct role validation"
+git commit -m "docs(readme): improve setup instructions"
+git commit -m "test(grades): cover average calculation"
+git commit -m "refactor(csv): improve data persistence"
+```
+
+Chaque commit doit représenter un changement logique et clairement identifiable.
+
+## Règles de développement
+
+Pour préserver la qualité et la maintenabilité du code, les contributeurs doivent respecter les règles suivantes.
+
+### Java et JavaFX
+
+- Respecter les conventions de nommage Java.
+- Utiliser `PascalCase` pour les classes et `camelCase` pour les méthodes et les variables.
+- Privilégier des classes et des méthodes ayant une responsabilité claire.
+- Éviter la duplication de code.
+- Séparer la logique métier de la présentation.
+- Utiliser les mécanismes de JavaFX adaptés à la gestion des événements.
+- Gérer correctement les exceptions et les erreurs d'exécution.
+- Éviter d'ajouter des dépendances inutiles.
+
+### Architecture MVC
+
+Naoty s'appuie sur une architecture MVC. Les contributions doivent préserver la séparation des responsabilités.
+
+- **Model** : représente les données et la logique métier.
+- **View** : gère l'interface utilisateur et la présentation.
+- **Controller** : traite les interactions utilisateur et coordonne les échanges entre le Model et la View.
+
+Évitez de placer toute la logique métier dans les Controllers ou de mélanger directement la présentation avec la persistance des données.
+
+Toute modification importante de l'architecture doit être justifiée et discutée avec les mainteneurs.
+
+### Gestion des données CSV
+
+Puisque le projet utilise des fichiers CSV pour la persistance des données, veillez à :
+
+- Préserver la structure et le format des fichiers existants.
+- Vérifier les données avant leur enregistrement.
+- Gérer les fichiers absents, vides ou mal formés.
+- Éviter la perte ou la corruption des données lors des opérations de lecture et d'écriture.
+- Gérer correctement les caractères spéciaux et les champs contenant des séparateurs.
+- Tester les opérations de création, de lecture, de modification et de suppression des données, lorsqu'elles sont prises en charge.
+
+### Gestion des notes universitaires
+
+Toute contribution concernant les notes et les résultats académiques doit préserver l'exactitude des données.
+
+Les contributeurs doivent notamment :
+
+- Valider les notes conformément aux règles académiques applicables.
+- Vérifier les calculs de moyennes et les règles de validation.
+- Prévenir les modifications non autorisées des dossiers académiques.
+- Éviter les doublons et les incohérences de données.
+- Ne jamais exposer des informations personnelles d'étudiants dans les logs, les captures d'écran ou les Issues publiques.
+
+## Tests et validation
+
+Avant de soumettre une Pull Request, vérifiez que vos modifications fonctionnent correctement.
+
+Les vérifications peuvent inclure :
+
+- La compilation du projet.
+- Le démarrage de l'application JavaFX.
+- Les tests unitaires des méthodes modifiées.
+- Les tests de validation des notes.
+- Les tests de lecture et d'écriture CSV.
+- Les tests des rôles et des permissions, lorsque cela s'applique.
+- La vérification de l'interface après les modifications.
+
+Utilisez les commandes et outils définis par le projet. Par exemple, si le repository utilise Maven Wrapper :
+
+```bash
+./mvnw test
+```
+
+Pour un projet configuré avec Gradle Wrapper :
+
+```bash
+./gradlew test
+```
+
+Ces commandes sont des exemples : utilisez uniquement celle correspondant à la configuration réelle de Naoty.
+
+Ne soumettez pas volontairement de modifications qui introduisent des régressions connues.
+
+## Signaler un Bug
+
+Si vous découvrez un bug, ouvrez une **GitHub Issue** en fournissant suffisamment d'informations pour reproduire le problème.
+
+Votre Issue doit idéalement contenir :
+
+1. Un titre clair et descriptif.
+2. Une description du problème.
+3. Les étapes permettant de reproduire le bug.
+4. Le comportement attendu.
+5. Le comportement réellement observé.
+6. Les messages d'erreur utiles, après suppression des informations sensibles.
+7. L'environnement de développement et la version concernée, si ces informations sont disponibles.
+
+Avant de créer une nouvelle Issue, vérifiez qu'un signalement similaire n'existe pas déjà.
+
+## Proposer une amélioration
+
+Les propositions d'amélioration sont les bienvenues, notamment pour :
+
+- L'ergonomie de l'interface JavaFX.
+- La gestion des notes et des dossiers académiques.
+- L'amélioration de l'architecture MVC.
+- La fiabilité de la persistance CSV.
+- L'accessibilité de l'application.
+- La sécurité de l'authentification et des autorisations.
+- Les performances et la maintenabilité du code.
+
+Pour une amélioration importante, ouvrez d'abord une Issue afin de discuter de la proposition avec les mainteneurs.
+
+Expliquez clairement le besoin, la solution envisagée et les bénéfices attendus.
+
+## Processus de Pull Request
+
+Avant d'ouvrir une Pull Request, assurez-vous que :
+
+- Votre branche contient uniquement les changements pertinents.
+- Le code respecte les conventions du projet.
+- La compilation et les tests applicables sont réussis.
+- La documentation est mise à jour si nécessaire.
+- Aucun secret ni donnée académique confidentielle n'est inclus.
+- Les commits utilisent une convention cohérente.
+
+### Soumettre une Pull Request
+
+**1. Push votre branche vers votre Fork :**
+
+```bash
+git push origin feat/your-feature
+```
+
+**2. Ouvrez une Pull Request** sur GitHub vers la branche `main` du repository officiel.
+
+**3. Décrivez votre contribution** en précisant :
+
+- Le problème résolu ou la fonctionnalité ajoutée.
+- Les principales modifications apportées.
+- Les tests exécutés.
+- Les éventuelles limitations connues.
+- L'Issue associée, le cas échéant.
+
+**4. Participez à la Code Review.**
+
+Répondez aux commentaires, effectuez les corrections nécessaires et mettez à jour votre branche si besoin.
+
+### Exemples de titres de Pull Request
+
+```text
+feat(grades): implement grade management
+fix(auth): improve role validation
+docs: update installation instructions
+test(csv): cover persistence operations
+refactor(mvc): separate business logic
+```
+
+Les Pull Requests sont examinées par les mainteneurs. Elles peuvent être acceptées, faire l'objet de demandes de modification ou être refusées si elles ne correspondent pas aux objectifs du projet.
+
+Privilégiez les Pull Requests de taille raisonnable, faciles à examiner et consacrées à un objectif précis.
+
+## Sécurité et confidentialité
+
+La sécurité et la confidentialité des données universitaires sont essentielles.
+
+Les contributeurs doivent :
+
+- Ne jamais publier de mots de passe, de tokens, de clés privées ou d'autres secrets.
+- Ne pas utiliser de données personnelles réelles dans les tests ou les captures d'écran publiques.
+- Vérifier les autorisations avant toute opération sensible.
+- Ne pas publier publiquement les détails d'une vulnérabilité exploitable.
+
+Si vous découvrez une vulnérabilité de sécurité, contactez les mainteneurs par un canal privé approprié plutôt que de publier immédiatement les détails dans une Issue publique.
+
+## Licence
+
+En contribuant à Naoty, vous acceptez que votre contribution soit distribuée selon les conditions de la licence applicable au projet.
+
+Consultez le fichier `LICENSE` du repository pour connaître les conditions de réutilisation et de redistribution du code.
+
+Si aucune licence n'est définie, contactez les mainteneurs avant de supposer que le code peut être librement réutilisé ou redistribué.
+
+---
+
+Merci de contribuer à **Naoty** !
+
+Chaque contribution, qu'il s'agisse d'un bug report, d'une amélioration de la documentation, d'un test ou d'une nouvelle fonctionnalité, participe à la qualité et à l'évolution du projet.
+
+**Happy coding!** 🚀
